@@ -1,4 +1,3 @@
-// import connectDB from "../config/database";
 import express from "express";
 import ServerRouter from "./routes";
 import bodyParser from "body-parser";
@@ -13,7 +12,7 @@ server.use(bodyParser.urlencoded({ extended: false }));
 server.use(cors());
 
 // Connection to DB
-// connectDB();
+
 
 // Router
 const router = new ServerRouter(server);
