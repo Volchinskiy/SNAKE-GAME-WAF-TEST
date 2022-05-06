@@ -10,7 +10,7 @@ export default class PersonService{
     return newPerson.rows[0];
   }
   async loginPerson(){
-    const {rows} = await db.query('SELECT * FROM person;');
+    const {rows} = await db.query('SELECT * FROM person');
     return rows;
   }
 };
