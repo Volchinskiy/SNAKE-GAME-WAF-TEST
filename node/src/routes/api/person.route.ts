@@ -4,7 +4,6 @@ import personController from "../../controllers/person.controller";
 const personRouter: Router = Router();
 personRouter.post("/register", personController.createPerson.bind(personController));
 personRouter.post("/login", personController.loginPerson.bind(personController));
-personRouter.put("/", personController.chengeName.bind(personController));
 personRouter.use((err: Error, _: Request, res: Response, next: NextFunction) => {
   if (res.headersSent) {
     return next(err);

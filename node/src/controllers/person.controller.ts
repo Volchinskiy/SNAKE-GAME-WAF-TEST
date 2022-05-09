@@ -1,34 +1,35 @@
 import { Request, Response } from "express";
 import PersonService from "../servises/persone.services";
 
+interface result {
+  name: string;
+  id: number | null;
+  login: boolean;
+}
+
 class PersonController {
   constructor(private PersonService: PersonService){} 
   async createPerson(req: Request, res: Response){
     const {name, password} = req.body;
     const newPerson = await this.PersonService.createPerson(name, password);
-    const result = {...newPerson, login: true}
+    const result = {...newPerson, login: true};
+
     res.status(200).send(result);
   }
   async loginPerson(req: Request, res: Response){
     const {name, password} = req.body;
     const people = await this.PersonService.loginPerson();
-    let result = {login: false, id: null};
+    let result: result = {login: false, id: null, name: ""};
 
     for(let index of people){
-      console.log(index);
       if(name === index.name){
         if(password === index.password){
-          result = {login: true, id: index.id};
+          result = {login: true, id: index.id, name: index.name};
         }
       }
     }
 
     res.status(200).send(result);
-  }
-  async chengeName(req: Request, res: Response){
-    const {id, name} = req.body;
-    const newPerson = await this.PersonService.chengeName(id, name);
-    res.status(200).send(newPerson);
   }
 }
 
