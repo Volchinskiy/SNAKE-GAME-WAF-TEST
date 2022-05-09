@@ -66,6 +66,7 @@
   height: 100%;
 
   @extend %FlexCenterCenter;
+  flex-wrap: wrap;
 }
 
 .row{
@@ -75,7 +76,7 @@
     width: 20px;
     height: 20px;
 
-    margin: 4px;
+    margin: 3px;
 
     border: 1px solid #000;
 

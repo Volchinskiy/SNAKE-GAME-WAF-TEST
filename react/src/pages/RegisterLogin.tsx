@@ -1,9 +1,8 @@
 import React from 'react'
-import personService from '../services/Person.servise';
+import personService from '../services/Person.service';
 import { useNavigate} from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { login } from "./../redux/actions/person.action";
-
+import { login } from "./../redux/store";
 
 export default function RegisterLogin() {
   const [showRegister, setShowRegister] = React.useState<boolean>(false);
@@ -11,14 +10,14 @@ export default function RegisterLogin() {
   const [password, setPassword] = React.useState<string>("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  
+
   const onLogin = async () => {
     await personService.login(name, password)
-     .then((object) => {
+      .then((object) => {
         if(object.data.login){
-          dispatch(login(object.data))
+          dispatch(login(object.data));
           navigate("/game");
-        } 
+        }
       })
   }
 
@@ -26,7 +25,8 @@ export default function RegisterLogin() {
     await personService.register(name, password)
       .then((object) => {
         if(object.data.login){
-          dispatch(login(object.data))
+          dispatch(login(object.data));
+
           navigate("/game");
         } 
       })
