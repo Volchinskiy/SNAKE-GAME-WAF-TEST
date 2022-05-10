@@ -1,10 +1,13 @@
-What's it?
-  *It is "SNAKE GAME"*
+## What's it?
 
-How does it work?
-  *It works using React, Redux, TypeScript on client and Node, Express, PostgreSQL on server.*
+*It is "SNAKE GAME"*
 
-How to run it? 
+## How does it work?
+
+*It works using React, Redux, TypeScript on client and Node, Express, PostgreSQL on server.*
+
+## How to run it? 
+
   1) First of all you need to install PostgreSQL.
   2) You need to register in PostgreSQL.
   3) In PostgreSQL you need to create DB which called "waf_test".
