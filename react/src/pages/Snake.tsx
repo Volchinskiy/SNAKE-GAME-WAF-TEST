@@ -45,7 +45,6 @@ export default function Snake() {
     if(index > -1){
       setDirection(AVAILABLE_MOVE[index]);
     }
-
   }
 
   React.useEffect( () => {
@@ -176,7 +175,7 @@ export default function Snake() {
       }
   }
 
-  function Cell({type}: any) {
+  function Cell({type}: obj) {
     let result = <div className="row__cell"></div>
   
     if(type === "snake"){
